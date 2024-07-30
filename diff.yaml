@@ -5,7 +5,6 @@
       ansible.builtin.shell: |
         git remote get-url --push origin
       register: git_repo_url
-
     - name: Git diff
       ansible.builtin.git:
         repo: "{{ git_repo_url }}"
@@ -14,41 +13,3 @@
         update: false
       check: true
       diff: true
-
-    # - name: Print vars
-    #   ansible.builtin.debug:
-    #     msg: "{{ approval }}"
-    # - name: Approved
-    #   ansible.builtin.debug:
-    #     msg: "승인됨"
-    #   when: approval == "Y"
-    # - name: Disapproved
-    #   ansible.builtin.debug:
-    #     msg: "승인안됨"
-    #   when: approval == "N"
-
-    # - name: Read before
-    #   ansible.builtin.shell: |
-    #     echo -n ''
-    #   register: diff_before
-    # - ansible.builtin.set_fact: diff_before_fact={{ diff_before.stdout }}
-    # - name: Read after
-    #   ansible.builtin.shell: |
-    #     git diff
-    #   register: diff_after
-    # - ansible.builtin.set_fact: diff_after_fact={{ diff_after.stdout }}
-    # - name: Diff
-    #   ansible.utils.fact_diff:
-    #     before: "{{ diff_before_fact }}"
-    #     after: "{{ diff_after_fact }}"
-
-# - name: Test pip
-#   hosts: all
-#   tasks:
-#     - name: Diff files
-#       ansible.builtin.copy:
-#         src: /tmp/playbook/pip2.yaml
-#         dest: /tmp/playbook/pip.yaml
-#       check_mode: true
-#       diff: true
-
