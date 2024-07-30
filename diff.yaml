@@ -19,29 +19,29 @@
     # - name: Print vars
     #   ansible.builtin.debug:
     #     msg: "{{ approval }}"
-    # - name: Approved
-    #   ansible.builtin.debug:
-    #     msg: "승인됨"
-    #   when: approval == "Y"
-    # - name: Disapproved
-    #   ansible.builtin.debug:
-    #     msg: "승인안됨"
-    #   when: approval == "N"
+    - name: Approved
+      ansible.builtin.shell: |
+        echo "승인됨"; exit 0
+      when: approval == "Y"
+    - name: Disapproved
+      ansible.builtin.shell: |
+        echo "승인안됨"; exit 1
+      when: approval != "Y"
 
-    - name: Read before
-      ansible.builtin.shell: |
-        echo -n ''
-      register: diff_before
-    - ansible.builtin.set_fact: diff_before_fact={{ diff_before.stdout }}
-    - name: Read after
-      ansible.builtin.shell: |
-        git diff
-      register: diff_after
-    - ansible.builtin.set_fact: diff_after_fact={{ diff_after.stdout }}
-    - name: Diff
-      ansible.utils.fact_diff:
-        before: "{{ diff_before_fact }}"
-        after: "{{ diff_after_fact }}"
+    # - name: Read before
+    #   ansible.builtin.shell: |
+    #     echo -n ''
+    #   register: diff_before
+    # - ansible.builtin.set_fact: diff_before_fact={{ diff_before.stdout }}
+    # - name: Read after
+    #   ansible.builtin.shell: |
+    #     git diff
+    #   register: diff_after
+    # - ansible.builtin.set_fact: diff_after_fact={{ diff_after.stdout }}
+    # - name: Diff
+    #   ansible.utils.fact_diff:
+    #     before: "{{ diff_before_fact }}"
+    #     after: "{{ diff_after_fact }}"
 
     # - name: Diff files
     #   ansible.builtin.copy:
