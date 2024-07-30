@@ -6,14 +6,14 @@
         git remote get-url --push origin
       register: git_repo_url
 
-    # - name: Git diff
-    #   ansible.builtin.git:
-    #     repo: "{{ git_repo_url }}"
-    #     dest: /tmp/repo
-    #   clone: false
-    #   update: false
-    #   check: true
-    #   diff: true
+    - name: Git diff
+      ansible.builtin.git:
+        repo: "{{ git_repo_url }}"
+        dest: /tmp/repo
+      clone: false
+      update: false
+      check: true
+      diff: true
 
     # - name: Print vars
     #   ansible.builtin.debug:
