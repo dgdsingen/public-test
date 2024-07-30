@@ -5,11 +5,13 @@
       ansible.builtin.shell: |
         git remote get-url --push origin
       register: git_repo_url
+    - name: Print vars
+      debug: msg="{{ git_repo_url }}"
     - name: Git diff
       ansible.builtin.git:
-        repo: "{{ git_repo_url }}"
+        repo: "{{ git_repo_url.stdout }}"
         dest: /tmp/repo
-        clone: no
-        update: no
-      check: true
+        clone: false
+        update: false
+      check_mode: true
       diff: true
