@@ -9,7 +9,7 @@
       ansible.builtin.git:
         repo: "{{ git_repo_url }}"
         dest: /tmp/repo
-        clone: false
-        update: false
+        clone: no
+        update: no
       check: true
       diff: true
