@@ -5,6 +5,6 @@
 
 # git add .;
 PRE_TAG=$(git tag -l | tail -1)
-git diff head --color=always
+git diff "$PRE_TAG" --color=always
 
 git restore --staged .
