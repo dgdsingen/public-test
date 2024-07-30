@@ -1,9 +1,9 @@
 - name: Test pip
   hosts: all
   tasks:
-    # - name: Print vars
-    #   ansible.builtin.debug:
-    #     msg: "{{ approval }}"
+    - name: Print vars
+      ansible.builtin.debug:
+        msg: "{{ semaphore_vars.task_details.username }} 님이 승인했습니다."
     - name: Approved
       ansible.builtin.shell: |
         echo "승인됨"; exit 0
