@@ -28,25 +28,25 @@
     #     msg: "승인안됨"
     #   when: approval == "N"
 
-    # - name: Read before
-    #   ansible.builtin.shell: |
-    #     echo -n ''
-    #   register: diff_before
-    # - ansible.builtin.set_fact: diff_before_fact={{ diff_before.stdout }}
-    # - name: Read after
-    #   ansible.builtin.shell: |
-    #     git diff
-    #   register: diff_after
-    # - ansible.builtin.set_fact: diff_after_fact={{ diff_after.stdout }}
-    # - name: Diff
-    #   ansible.utils.fact_diff:
-    #     before: "{{ diff_before_fact }}"
-    #     after: "{{ diff_after_fact }}"
+    - name: Read before
+      ansible.builtin.shell: |
+        echo -n ''
+      register: diff_before
+    - ansible.builtin.set_fact: diff_before_fact={{ diff_before.stdout }}
+    - name: Read after
+      ansible.builtin.shell: |
+        git diff
+      register: diff_after
+    - ansible.builtin.set_fact: diff_after_fact={{ diff_after.stdout }}
+    - name: Diff
+      ansible.utils.fact_diff:
+        before: "{{ diff_before_fact }}"
+        after: "{{ diff_after_fact }}"
 
-    - name: Diff files
-      ansible.builtin.copy:
-        src: /tmp/playbook/
-        dest: /tmp/playbook2/
-      check_mode: true
-      diff: true
+    # - name: Diff files
+    #   ansible.builtin.copy:
+    #     src: /tmp/playbook/
+    #     dest: /tmp/playbook2/
+    #   check_mode: true
+    #   diff: true
 
