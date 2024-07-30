@@ -1,0 +1,14 @@
+- name: Test pip
+  hosts: all
+  tasks:
+    # - name: Print vars
+    #   ansible.builtin.debug:
+    #     msg: "{{ approval }}"
+    - name: Approved
+      ansible.builtin.shell: |
+        echo "승인됨"; exit 0
+      when: approval == "Y"
+    - name: Disapproved
+      ansible.builtin.shell: |
+        echo "승인안됨"; exit 1
+      when: approval != "Y"
