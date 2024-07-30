@@ -1,20 +1,20 @@
 - name: Test pip
   hosts: all
   tasks:
-    - name: Git repo
-      ansible.builtin.shell: |
-        git remote get-url --push origin
-      register: git_repo_url
-    - name: Print vars
-      debug: msg="{{ git_repo_url }}"
-    - name: Git diff
-      ansible.builtin.git:
-        repo: "{{ git_repo_url.stdout }}"
-        dest: /tmp/repo
-        clone: false
-        update: false
-      check_mode: true
-      diff: true
+    # - name: Git repo
+    #   ansible.builtin.shell: |
+    #     git remote get-url --push origin
+    #   register: git_repo_url
+    # - name: Print vars
+    #   debug: msg="{{ git_repo_url }}"
+    # - name: Git diff
+    #   ansible.builtin.git:
+    #     repo: "{{ git_repo_url.stdout }}"
+    #     dest: /tmp/repo
+    #     clone: false
+    #     update: false
+    #   check_mode: true
+    #   diff: true
 
     # - name: Print vars
     #   ansible.builtin.debug:
@@ -43,13 +43,13 @@
     #     before: "{{ diff_before_fact }}"
     #     after: "{{ diff_after_fact }}"
 
-# - name: Test pip
-#   hosts: all
-#   tasks:
-#     - name: Diff files
-#       ansible.builtin.copy:
-#         src: /tmp/playbook/pip2.yaml
-#         dest: /tmp/playbook/pip.yaml
-#       check_mode: true
-#       diff: true
+    - name: Test pip
+      hosts: all
+      tasks:
+        - name: Diff files
+          ansible.builtin.copy:
+            src: /tmp/playbook/pip2.yaml
+            dest: /tmp/playbook/pip.yaml
+          check_mode: true
+          diff: true
 
