@@ -1,0 +1,10 @@
+- name: Deploy
+  hosts: all
+  tasks:
+    - name: Deploy
+      ansible.builtin.shell: |
+        echo "배포 완료"
+    - name: Git tag
+      ansible.builtin.shell: |
+        git tag {{ semaphore_vars.task_details.incoming_version }};
+        git push --tags

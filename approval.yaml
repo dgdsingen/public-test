@@ -1,4 +1,4 @@
-- name: Test pip
+- name: Approval
   hosts: all
   tasks:
     - name: Print vars

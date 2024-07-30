@@ -1,4 +1,4 @@
-- name: Test pip
+- name: Diff
   hosts: all
   tasks:
     # - name: Git repo
