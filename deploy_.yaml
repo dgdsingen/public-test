@@ -7,6 +7,6 @@
     - name: Git tag
       ansible.builtin.shell: |
         git tag {{ semaphore_vars.task_details.incoming_version }} -f
-    - name: Git push
-      ansible.builtin.shell: |
-        git push --tags
+    # - name: Git push
+    #   ansible.builtin.shell: |
+    #     git push --tags
