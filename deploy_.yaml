@@ -1,12 +1,12 @@
 - name: Deploy
   hosts: all
   tasks:
-    - name: Deploy
-      ansible.builtin.shell: |
-        echo "배포 완료"
     - name: Git tag
       ansible.builtin.shell: |
         git tag {{ semaphore_vars.task_details.incoming_version }} -f
     # - name: Git push
     #   ansible.builtin.shell: |
     #     git push --tags
+    - name: Deploy
+      ansible.builtin.shell: |
+        echo "배포 완료"; exit 0
