@@ -45,8 +45,8 @@
 
     - name: Diff files
       ansible.builtin.copy:
-        src: /tmp/playbook/pip2.yaml
-        dest: /tmp/playbook/pip.yaml
+        src: /tmp/playbook/
+        dest: /tmp/playbook2/
       check_mode: true
       diff: true
 
