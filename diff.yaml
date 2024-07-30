@@ -43,13 +43,10 @@
     #     before: "{{ diff_before_fact }}"
     #     after: "{{ diff_after_fact }}"
 
-    - name: Test pip
-      hosts: all
-      tasks:
-        - name: Diff files
-          ansible.builtin.copy:
-            src: /tmp/playbook/pip2.yaml
-            dest: /tmp/playbook/pip.yaml
-          check_mode: true
-          diff: true
+    - name: Diff files
+      ansible.builtin.copy:
+        src: /tmp/playbook/pip2.yaml
+        dest: /tmp/playbook/pip.yaml
+      check_mode: true
+      diff: true
 
