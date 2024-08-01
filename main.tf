@@ -8,3 +8,7 @@ resource "random_string" "random" {
   min_special = 1
   min_upper   = 1
 }
+
+output vars {
+  value = var.test
+}
