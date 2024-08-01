@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo -n "### param ###"
+echo "### param ###"
 echo $@
-echo -n "### param ###"
+echo "### param ###"
 
-echo -n "### env ###"
+echo "### env ###"
 export
-echo -n "### env ###"
+echo "### env ###"
 
 echo -n "# proceed? [y/n] "
 read proceed
