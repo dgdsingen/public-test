@@ -1,11 +1,13 @@
 #!/bin/bash
 
 echo "### param ###"
-echo $@
+echo $1
+echo $2
 echo "### param ###"
 
 echo "### env ###"
-export
+echo $test
+echo $TEST
 echo "### env ###"
 
 echo -n "# proceed? [y/n] "
