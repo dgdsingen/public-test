@@ -9,6 +9,8 @@ resource "random_string" "random" {
   min_upper   = 1
 }
 
+variable test {}
+
 output vars {
   value = var.test
 }
