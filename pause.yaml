@@ -1,0 +1,3 @@
+- name: Pause until you can verify updates to an application were successful
+  ansible.builtin.pause:
+
