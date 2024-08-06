@@ -1,3 +1,5 @@
-- name: Pause until you can verify updates to an application were successful
-  ansible.builtin.pause:
-
+- name: Pause
+  hosts: all
+  tasks:
+    - name: Pause until you can verify updates to an application were successful
+      ansible.builtin.pause:
