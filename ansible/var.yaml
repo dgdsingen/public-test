@@ -1,0 +1,6 @@
+- name: Var
+  hosts: all
+  tasks:
+    - name: Print vars
+      ansible.builtin.debug:
+        msg: "{{ semaphore_vars.task_details.username }}"
