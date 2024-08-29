@@ -3,4 +3,4 @@
   tasks:
     - name: Print vars
       ansible.builtin.debug:
-        msg: "{{ semaphore_vars.task_details.username }}"
+        msg: "{{ semaphore_vars.task_details }}"
