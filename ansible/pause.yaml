@@ -1,5 +1,13 @@
 - name: Pause
   hosts: all
   tasks:
-    - name: Pause until you can verify updates to an application were successful
+    - name: Pause 1
       ansible.builtin.pause:
+    - name: Task 1
+      ansible.builtin.debug:
+        msg: "Task 1"
+    - name: Pause 2
+      ansible.builtin.pause:
+    - name: Task 1
+      ansible.builtin.debug:
+        msg: "Task 1"
