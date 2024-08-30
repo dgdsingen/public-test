@@ -8,6 +8,6 @@
         msg: "Task 1"
     - name: Pause 2
       ansible.builtin.pause:
-    - name: Task 1
+    - name: Task 2
       ansible.builtin.debug:
-        msg: "Task 1"
+        msg: "Task 2"
